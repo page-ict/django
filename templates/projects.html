@@ -1,0 +1,20 @@
+{% extends "base_2.html" %}
+{% block content %}
+
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            {% for project in project_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ project.name }}</h2>
+                    <p class="card-text text-muted h6">{{ project.author }} | {{ post.created_on}} </p>
+                    <p class="card-text">{{project.content|slice:":200" }}</p>
+                    <a href="{% url 'project_detail' project.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{%endblock%}

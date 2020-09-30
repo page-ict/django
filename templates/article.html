@@ -1,0 +1,38 @@
+{% extends "base_2.html" %}
+{% block content %}
+
+    <div class="row">
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 card mb-4  mt-3 left  top">
+                <div class="card-body">
+                    <form action="" method="GET">
+                      <div class="form-group">
+                      <input type="text" class="form-control" name="url" aria-describedby="url" placeholder="Enter article url">
+                      <small id="emailHelp" class="form-text text-muted">Input a valid Examiner.com article url above.</small>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Read</button>
+                    </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+            {% for article in article_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ article.title }}</h2>
+                    <p class="card-text text-muted h6">{{ article.author }} | {{ post.created_on}} </p>
+                    <p class="card-text">{{article.content|linebreaks}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{%endblock%}
